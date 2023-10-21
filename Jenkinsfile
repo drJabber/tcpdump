@@ -1,10 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage("blahblah") {
-      steps {
-        echo "Hello somebody!"
-      }
-    }
+    stage("build") {
+        agent {
+            docker {
+                image "aflplusplus/aflplusplus"
+            }
+        }
+        steps {
+          echo "hello from docker!"
+        }
+    }    
   }
 }
